@@ -1,0 +1,1748 @@
+const PARTIES = "c kd l m mp s sd v".toUpperCase().split(" ");
+
+const LIST = [{
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/45445eb9-01dc-4786-990e-c1864d4f7c50_160.jpg",
+    "first_name": "Tina",
+    "last_name": "Acketoft",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4a2cb0d8-5569-4f1b-bd0f-62c7e812a2fb_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Adaktusson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8583281e-3621-49fd-a131-661a0f432452_160.jpg",
+    "first_name": "Ann-Christin",
+    "last_name": "Ahlberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4099ff9c-5d27-4605-b018-98fb229d94fa_160.jpg",
+    "first_name": "Alireza",
+    "last_name": "Akhondi",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5997ba96-4f01-46f4-8bd8-e1411a9d503b_160.jpg",
+    "first_name": "Leila",
+    "last_name": "Ali-Elmi",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7e408079-a5cd-432a-a30e-fd61fd15c65a_160.jpg",
+    "first_name": "Janine",
+    "last_name": "Alm Ericson",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f91f6a86-591c-449c-b3dd-1fdaa86338cd_160.jpg",
+    "first_name": "Ann-Sofie",
+    "last_name": "Alm",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4ddb02e0-2a49-4cea-8a99-2a1fe307ea49_160.jpg",
+    "first_name": "Erik",
+    "last_name": "Andersson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ecbe80be-fc66-48ce-81fd-14d6fa38aa4c_160.jpg",
+    "first_name": "Jan R",
+    "last_name": "Andersson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fff74c6c-fae3-4977-a472-cfe2b6ae257a_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Andersson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9944df03-e946-4046-aeef-c49117503a0c_160.jpg",
+    "first_name": "Jonas",
+    "last_name": "Andersson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c5e9daf0-868f-4c8e-9a69-671c7b22855a_160.jpg",
+    "first_name": "Jonas",
+    "last_name": "Andersson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/46472134-8e4e-4c65-856e-d401cad915dd_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Andersson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5763c159-5105-47b3-82fb-9cc7dc20dc7d_160.jpg",
+    "first_name": "Tobias",
+    "last_name": "Andersson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a9eff036-3d8c-487e-9325-e3bece8df1e4_160.jpg",
+    "first_name": "Ulla",
+    "last_name": "Andersson",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0e4e69c7-d657-47e6-be67-e8a3003084fd_160.jpg",
+    "first_name": "Michael",
+    "last_name": "Anefur",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8310e472-996b-4c8a-bce5-4d09fb20a66a_160.jpg",
+    "first_name": "Alexandra",
+    "last_name": "Anstrell",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6977f22f-363b-40fb-8f8f-8163b4492345_160.jpg",
+    "first_name": "Clara",
+    "last_name": "Aranda",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/83345459-cc17-4d4a-b2bb-3748a0f3721c_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Arnholm",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c31ae1-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Beatrice",
+    "last_name": "Ask",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5b6bef5c-75ce-4f53-894d-e89afd3b6799_160.jpg",
+    "first_name": "Ludvig",
+    "last_name": "Aspling",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9d13985d-9d6c-4cba-8492-1155d94fbe69_160.jpg",
+    "first_name": "Gulan",
+    "last_name": "Avci",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8cafb7dc-dbdd-4ac4-bd56-1e4e75daa4a6_160.jpg",
+    "first_name": "Kristina",
+    "last_name": "Axén Olin",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b86c28d2-48d1-41a6-bea3-b3317cdfeec8_160.jpg",
+    "first_name": "Hanif",
+    "last_name": "Bali",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/db90fc94-9496-4748-9b84-bcfadc24af74_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Beckman",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/47705a06-b78d-469f-9ebe-8f7407607be6_160.jpg",
+    "first_name": "Denis",
+    "last_name": "Begic",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9d68c0c3-2102-402d-998f-dc56a410d19d_160.jpg",
+    "first_name": "Angelika",
+    "last_name": "Bengtsson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cc608c25-fcc1-4bdb-9354-4cd44532ff25_160.jpg",
+    "first_name": "Erik",
+    "last_name": "Bengtzboe",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/641344b2-dc65-4282-b308-8fca005983a1_160.jpg",
+    "first_name": "Sten",
+    "last_name": "Bergheden",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/280f9475-e1a8-495b-96bf-04b1b0497a00_160.jpg",
+    "first_name": "Emma",
+    "last_name": "Berginger",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fe6f437b-729a-4943-8e41-f43d39a5605f_160.jpg",
+    "first_name": "Jörgen",
+    "last_name": "Berglund",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4bf6dd84-3a63-4cb0-a8c0-08ca3d5e00c3_160.jpg",
+    "first_name": "Paula",
+    "last_name": "Bieler",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0918737e-5224-47aa-a86b-d64f6d820618_160.jpg",
+    "first_name": "Tobias",
+    "last_name": "Billström",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8a5b8260-f6d5-4d17-af0b-a339cd40470e_160.jpg",
+    "first_name": "Patrik",
+    "last_name": "Björck",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a4581b8d-78fd-41c1-a55d-7fe9ed93c878_160.jpg",
+    "first_name": "Heléne",
+    "last_name": "Björklund",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fb860100-9be3-4365-b84c-24fe53434882_160.jpg",
+    "first_name": "Jan",
+    "last_name": "Björklund",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/96765f90-7072-436d-8143-264d7cbd7fa9_160.jpg",
+    "first_name": "Elisabeth",
+    "last_name": "Björnsdotter Rahm",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3eae18dc-594f-44eb-95a8-0e5b2b71d645_160.jpg",
+    "first_name": "Juno",
+    "last_name": "Blom",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7223f863-4406-4833-8f54-ed21dd2ccbc3_160.jpg",
+    "first_name": "Carl-Oskar",
+    "last_name": "Bohlin",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a65ace9d-bbae-43cd-8a21-119c8b3b0bfb_160.jpg",
+    "first_name": "Helena",
+    "last_name": "Bouveng",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/86c365a5-452c-4bca-8871-45bf67a44645_160.jpg",
+    "first_name": "Camilla",
+    "last_name": "Brodin",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/24c753af-11ea-4c6f-90f9-f4142fc71e19_160.jpg",
+    "first_name": "Bo",
+    "last_name": "Broman",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/97a9cfb7-de78-4995-8e29-40891595e8d2_160.jpg",
+    "first_name": "Katarina",
+    "last_name": "Brännström",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cec8b2f1-f56f-4b7e-974f-eefa299c89cb_160.jpg",
+    "first_name": "Marlene",
+    "last_name": "Burwick",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b0cce726-5e23-4d21-a609-95071f8820f0_160.jpg",
+    "first_name": "Ebba",
+    "last_name": "Busch Thor",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/90110ece-022e-4e0f-bb4e-f5102900fa9a_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Büser",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cb0336b4-54a8-4384-abe3-8d6cbebc63fa_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Bäckström Johansson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d9b65520-dba2-4ec1-a124-d89d667ebf37_160.jpg",
+    "first_name": "Daniel",
+    "last_name": "Bäckström",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7f431f89-8b2f-4499-8997-f55f1b57d8ab_160.jpg",
+    "first_name": "Andreas",
+    "last_name": "Carlson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8340e89d-250a-4300-bab5-6937399ee277_160.jpg",
+    "first_name": "Emma",
+    "last_name": "Carlsson Löfdahl",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2774ffff-fec1-459c-b172-974af448f147_160.jpg",
+    "first_name": "Christian",
+    "last_name": "Carlsson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/34f7ceb6-9f7c-4b37-a15e-1c61ffa639e5_160.jpg",
+    "first_name": "ClasGöran",
+    "last_name": "Carlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/11d950d5-e41f-4e94-af86-ae8a1996d81b_160.jpg",
+    "first_name": "Gunilla",
+    "last_name": "Carlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3d764cf6-705b-460b-8226-df8f1226b27b_160.jpg",
+    "first_name": "Teresa",
+    "last_name": "Carvalho",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/946642dd-825a-47fb-b150-37373b873083_160.jpg",
+    "first_name": "Jonny",
+    "last_name": "Cato Hansson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c329da-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Margareta",
+    "last_name": "Cederfelt",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/08f0d4c3-a02f-4e08-88b2-c03d384f63fc_160.jpg",
+    "first_name": "Fredrik",
+    "last_name": "Christensson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/300c041c-1f7e-4daa-97e0-4d2ec8e6f4f5_160.jpg",
+    "first_name": "Alexander",
+    "last_name": "Christiansson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d07b112d-3095-4283-bf67-806499587845_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Coenraads",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/78d79a96-956f-4ac3-bbf7-2b15b3d86ce7_160.jpg",
+    "first_name": "Nooshi",
+    "last_name": "Dadgostar",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4db15792-072c-456e-a46c-6d0cee07889e_160.jpg",
+    "first_name": "Mikael",
+    "last_name": "Dahlqvist",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a6a33386-bc67-4702-aa8c-331ffe7e2f9c_160.jpg",
+    "first_name": "Sofia",
+    "last_name": "Damm",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d3874590-31fb-4743-8d55-2565df5ed8af_160.jpg",
+    "first_name": "Lorena",
+    "last_name": "Delgado Varas",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2eb5b5ce-2e8c-4063-a2c2-d03b50ff4c5d_160.jpg",
+    "first_name": "Adnan",
+    "last_name": "Dibrani",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/13a59e93-95fe-45fb-b7b5-a76f8181cb4f_160.jpg",
+    "first_name": "Dennis",
+    "last_name": "Dioukarev",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e8a2c04d-a186-421b-b1fd-a401f0917673_160.jpg",
+    "first_name": "Ida",
+    "last_name": "Drougge",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/529ac523-d10b-444b-8441-56a24a66ef5b_160.jpg",
+    "first_name": "Magnus",
+    "last_name": "Ek",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f270f5c5-c28f-4267-8dff-0bead595f631_160.jpg",
+    "first_name": "Hans",
+    "last_name": "Eklind",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5c165eb8-a2d3-4991-8732-430ea585d763_160.jpg",
+    "first_name": "Staffan",
+    "last_name": "Eklöf",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b6fe54d6-ffc7-4435-9326-5baf132b3338_160.jpg",
+    "first_name": "Hans",
+    "last_name": "Ekström",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6a1b02dd-bdc4-4019-ab3e-dfeb133018ed_160.jpg",
+    "first_name": "Jamal",
+    "last_name": "El-Haj",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/18cd4aa9-d266-4c2b-bcaa-6118032ece49_160.jpg",
+    "first_name": "Bengt",
+    "last_name": "Eliasson",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fc43f0dc-4fc1-4e6e-ba11-5b74b20a12b2_160.jpg",
+    "first_name": "Aron",
+    "last_name": "Emilsson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/23c1d1cc-f2a2-47f1-b144-0d52a464791a_160.jpg",
+    "first_name": "Annicka",
+    "last_name": "Engblom",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/22fbd180-3870-4f26-a5ee-eeab42b00de8_160.jpg",
+    "first_name": "Patrik",
+    "last_name": "Engström",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8c4af927-7bb6-4012-9b46-12adb641f556_160.jpg",
+    "first_name": "Matheus",
+    "last_name": "Enholm",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c32504-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Karin",
+    "last_name": "Enström",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5c11ef9b-d56d-4e85-8cc6-800f0257548a_160.jpg",
+    "first_name": "Jan",
+    "last_name": "Ericson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a38e0ebf-a2df-4cba-81eb-81d6fcf342cd_160.jpg",
+    "first_name": "Jonas",
+    "last_name": "Eriksson",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ae22d593-d382-40dc-918c-df30916b6d9e_160.jpg",
+    "first_name": "Yasmine",
+    "last_name": "Eriksson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/473cc883-b475-42fe-8553-4f1a6bd17a54_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Eriksson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c32246-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Eskil",
+    "last_name": "Erlandsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8166bd73-bf10-4ef8-8e01-1975ca921c12_160.jpg",
+    "first_name": "Matilda",
+    "last_name": "Ernkrans",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/979e9852-69ed-4077-8140-52ab99414a6c_160.jpg",
+    "first_name": "Ali",
+    "last_name": "Esbati",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cf98df89-2103-40cc-8524-b2df33125a3f_160.jpg",
+    "first_name": "Mikael",
+    "last_name": "Eskilandersson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/45bd9e8b-22f0-4cb7-9cfe-b40847e9715f_160.jpg",
+    "first_name": "Erik",
+    "last_name": "Ezelius",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cb53466b-8349-484e-9a7b-084561cdf8b4_160.jpg",
+    "first_name": "Elisabeth",
+    "last_name": "Falkhaven",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d6bcb84c-0102-4eca-b564-c21bd7cf1f4e_160.jpg",
+    "first_name": "Aylin",
+    "last_name": "Fazelian",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f7506cc9-0867-4ec3-a0ba-8a1a127060f8_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Ferm",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/49cb272f-9347-407a-bac0-06403fbec5b5_160.jpg",
+    "first_name": "Runar",
+    "last_name": "Filper",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/61e74c12-dab8-4117-8b4e-ffd41c21dbda_160.jpg",
+    "first_name": "Lotta",
+    "last_name": "Finstorp",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f1484855-05d7-498f-8872-5a0c33ad535b_160.jpg",
+    "first_name": "Kenneth G",
+    "last_name": "Forslund",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1c9bf350-8e09-4e61-b337-d03d4656b86a_160.jpg",
+    "first_name": "Joar",
+    "last_name": "Forssell",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0b564224-f764-4bfc-87f6-80fcaa33fa46_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Forssell",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0ab695ba-6994-11d7-ae76-0004755038ce_160.jpg",
+    "first_name": "Jakob",
+    "last_name": "Forssmed",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2131f2eb-348c-4b92-8e76-52c134d79919_160.jpg",
+    "first_name": "Josef",
+    "last_name": "Fransson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3298ed49-917f-4230-8cf5-e10a70a93727_160.jpg",
+    "first_name": "Ann-Christine",
+    "last_name": "From Utterstedt",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cebc9890-55f1-41ff-acc7-af2de3e4320e_160.jpg",
+    "first_name": "Isak",
+    "last_name": "From",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/964e3aff-b4df-4f49-acc1-3bba2afc2f80_160.jpg",
+    "first_name": "Ida",
+    "last_name": "Gabrielsson",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d9a13d2e-85ec-4c59-af10-773ff99b8eb1_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Gardfjell",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5e7c5792-d4ff-4d8e-999f-92e1a7af86f3_160.jpg",
+    "first_name": "Helena",
+    "last_name": "Gellerman",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d5c26045-6fd1-4c05-8f97-7195e1e324ff_160.jpg",
+    "first_name": "Mats",
+    "last_name": "Green",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/086bff3d-8adb-47c2-b5dc-86d4a9f1b191_160.jpg",
+    "first_name": "Jörgen",
+    "last_name": "Grubb",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e53ce4a4-b399-4ed6-9815-cb96818871b3_160.jpg",
+    "first_name": "Roza",
+    "last_name": "Güclü Hedin",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8880da78-8ec1-41f7-96c7-f007375352ac_160.jpg",
+    "first_name": "Hanna",
+    "last_name": "Gunnarsson",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/994eee01-a983-4409-9455-cd915c86d94d_160.jpg",
+    "first_name": "Elin",
+    "last_name": "Gustafsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/521898f1-51de-46ff-8701-d28b8a0e651d_160.jpg",
+    "first_name": "Roger",
+    "last_name": "Haddad",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8e21a563-23d4-46cd-a901-acf5839d72d9_160.jpg",
+    "first_name": "Tony",
+    "last_name": "Haddou",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/88438cea-b340-48cf-8fa8-230f1a8d2ea2_160.jpg",
+    "first_name": "Hampus",
+    "last_name": "Hagman",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6f818cd1-9a97-412f-bc59-1d1e8a2ceb19_160.jpg",
+    "first_name": "Monica",
+    "last_name": "Haider",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4eda0e46-58a1-446f-b12b-1de6132f4f35_160.jpg",
+    "first_name": "Robert",
+    "last_name": "Halef",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5ac51ad6-c8ea-4ce6-bcd5-b8609d6c058a_160.jpg",
+    "first_name": "Ann-Charlotte",
+    "last_name": "Hammar Johnsson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0363ee54-6077-4caf-b7d6-09dcb7051213_160.jpg",
+    "first_name": "Thomas",
+    "last_name": "Hammarberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/99a5ca75-949e-470a-9b44-e2cdbcec920b_160.jpg",
+    "first_name": "Robert",
+    "last_name": "Hannah",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fa84d5df-e8ef-43be-beff-a71453d18ebc_160.jpg",
+    "first_name": "Anders",
+    "last_name": "Hansson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a1d94b24-2d7f-4d84-99fb-ca161ba77f78_160.jpg",
+    "first_name": "Johanna",
+    "last_name": "Haraldsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6014c0f6-d3b6-4ed4-ae63-ace3af71dc86_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Hedin",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/dd0d47ea-5e71-4ec9-b987-3261320ac857_160.jpg",
+    "first_name": "Roger",
+    "last_name": "Hedlund",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8c343e73-ddab-428a-87aa-0ab8e2879ce4_160.jpg",
+    "first_name": "Ulrika",
+    "last_name": "Heie",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7c4e35b2-f653-4746-bb03-351abbd566eb_160.jpg",
+    "first_name": "Ulrika",
+    "last_name": "Heindorff",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3234a755-70b3-40db-b414-d5afb960ed4e_160.jpg",
+    "first_name": "Peter",
+    "last_name": "Helander",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/26eb9dcc-8638-445e-8356-ba8fdeb6d742_160.jpg",
+    "first_name": "Jörgen",
+    "last_name": "Hellman",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ae67201e-c2ea-4c8d-8a62-54f12be55778_160.jpg",
+    "first_name": "Caroline",
+    "last_name": "Helmersson Olsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/109831a1-4305-4376-a3cf-ecc173855d65_160.jpg",
+    "first_name": "Ebba",
+    "last_name": "Hermansson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a9346ffe-2c1f-4e2b-b686-d8248a3d0db2_160.jpg",
+    "first_name": "Annika",
+    "last_name": "Hirvonen Falk",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8d512372-93ca-4514-922a-286760f236f9_160.jpg",
+    "first_name": "Annica",
+    "last_name": "Hjerling",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4cc89ee3-f5bd-4009-a13f-d86a40caff16_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Hjälmered",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c323f9-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Hans",
+    "last_name": "Hoff",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5b7ac02c-0819-426d-bc5d-41b8c21ca4dd_160.jpg",
+    "first_name": "Jens",
+    "last_name": "Holm",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ee75e6d6-b026-4d65-a54e-f02861c80721_160.jpg",
+    "first_name": "Paula",
+    "last_name": "Holmqvist",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ae37cc33-2580-4221-aa93-4dd4621ecb98_160.jpg",
+    "first_name": "Emma",
+    "last_name": "Hult",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/31ae8846-ad0b-4ff2-aaf7-72b398d1fb5a_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Hultberg",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ddbc56dc-35aa-4c01-828c-5a117e4f2682_160.jpg",
+    "first_name": "Marie-Louise",
+    "last_name": "Hänel Sandström",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0ba9f702-555f-419f-89fb-7e1234ae1171_160.jpg",
+    "first_name": "Per-Arne",
+    "last_name": "Håkansson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/74612723-9c78-4dbd-b635-1309681dea16_160.jpg",
+    "first_name": "Christina",
+    "last_name": "Höj Larsen",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/feca1b4c-7f8b-41e6-9f10-3001fdd550f7_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Ingeson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c3282f-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Magnus",
+    "last_name": "Jacobsson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f257311a-2900-4db5-a2e2-df250c764ad6_160.jpg",
+    "first_name": "Momodou Malcolm",
+    "last_name": "Jallow",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3ce8f147-129f-412c-b6ad-db566d53b1db_160.jpg",
+    "first_name": "Kjell",
+    "last_name": "Jansson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9fd034bc-17ce-471b-b78c-94e03b34f7a0_160.jpg",
+    "first_name": "Anna",
+    "last_name": "Johansson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5f965f4e-69e5-489d-99bf-a8908fc3e34a_160.jpg",
+    "first_name": "Martina",
+    "last_name": "Johansson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/728bd800-61df-4b9a-86ed-1fe3d8479f14_160.jpg",
+    "first_name": "Ola",
+    "last_name": "Johansson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4468626c-27a1-46c7-b530-f346b70b753b_160.jpg",
+    "first_name": "Lotta",
+    "last_name": "Johnsson Fornarve",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ea8bae0d-0db4-4c68-b59f-3ba83d5f445d_160.jpg",
+    "first_name": "Richard",
+    "last_name": "Jomshof",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/057d1c7b-e668-4acc-8167-5d8dc68db0af_160.jpg",
+    "first_name": "Pål",
+    "last_name": "Jonson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6ad91da1-1287-4e8f-9778-3315390fdfca_160.jpg",
+    "first_name": "Anders",
+    "last_name": "W Jonsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9ae916dd-799d-4d2b-80c4-f00bc5a7344d_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Jonsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5d9734c8-d757-4862-8f2e-c292824120a7_160.jpg",
+    "first_name": "David",
+    "last_name": "Josefsson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/efb2daaa-8053-411f-9fc7-dfcca1395bb0_160.jpg",
+    "first_name": "Ellen",
+    "last_name": "Juntti",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a6a8678d-8fe2-414c-9dc4-da76ad161d23_160.jpg",
+    "first_name": "Joakim",
+    "last_name": "Järrebring",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a3bcba0f-0032-4aba-a889-f3fc19d82549_160.jpg",
+    "first_name": "Johanna",
+    "last_name": "Jönsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0007cc9d-247c-4136-80d1-0bae44bd20ba_160.jpg",
+    "first_name": "Patrik",
+    "last_name": "Jönsson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fa0256bd-46ac-4027-be42-ffebef7b0dcf_160.jpg",
+    "first_name": "Ulrika",
+    "last_name": "Jörgensen",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8399ff3f-1fbe-4984-b59c-4ada1ec670ec_160.jpg",
+    "first_name": "Amineh",
+    "last_name": "Kakabaveh",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2658d745-0315-41b7-926c-f136a7803b88_160.jpg",
+    "first_name": "Arin",
+    "last_name": "Karapet",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7891a68a-bcbd-43a3-bd8b-90bdbb040f45_160.jpg",
+    "first_name": "Ida",
+    "last_name": "Karkiainen",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cbadd933-3375-4216-92fd-3d64a56b5a13_160.jpg",
+    "first_name": "Annelie",
+    "last_name": "Karlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9d6489d6-6fa5-4420-9224-8968abaa569c_160.jpg",
+    "first_name": "Maj",
+    "last_name": "Karlsson",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/951f7039-b277-4696-ab49-7f0df0f39d1a_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Karlsson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/727e2213-ac97-4ceb-bfab-f228debd8074_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Karlsson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b20fb574-b44c-42af-ae93-064dfabbffaf_160.jpg",
+    "first_name": "Niklas",
+    "last_name": "Karlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/317c6cc9-dcd5-4dcc-b275-9e17d973da4c_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Karlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/81e7b3dd-c260-45d1-89a7-ddd6cbe6582d_160.jpg",
+    "first_name": "Kadir",
+    "last_name": "Kasirga",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/50277320-fb16-40ba-82aa-8093fbb3126e_160.jpg",
+    "first_name": "Sultan",
+    "last_name": "Kayhan",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/06f647f7-2937-4767-af38-04636afc040d_160.jpg",
+    "first_name": "Ingemar",
+    "last_name": "Kihlström",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/57cbe134-829b-4fb8-9cc1-ce2f1cd02f3b_160.jpg",
+    "first_name": "Martin",
+    "last_name": "Kinnunen",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e7e4132a-b4df-11d5-8079-0040ca16072a_160.jpg",
+    "first_name": "Ulf",
+    "last_name": "Kristersson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/04727b66-64cd-4880-be85-dc8fe873bf8d_160.jpg",
+    "first_name": "Julia",
+    "last_name": "Kronlid",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/173d7387-fa63-4689-ac8c-e12f278487bd_160.jpg",
+    "first_name": "Tomas",
+    "last_name": "Kronståhl",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/17c541d7-8031-43e6-8a8f-8608b9afeed0_160.jpg",
+    "first_name": "Emil",
+    "last_name": "Källström",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f2597c6d-8286-457a-9d62-6243f260af40_160.jpg",
+    "first_name": "Serkan",
+    "last_name": "Köse",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a2c4e9f3-6d4a-4994-9351-66ce4c752905_160.jpg",
+    "first_name": "Birger",
+    "last_name": "Lahti",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/82c56b96-b106-4b16-958c-98b153d02639_160.jpg",
+    "first_name": "Gustaf",
+    "last_name": "Lantz",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/56a35546-926b-4ac3-a101-a157de119e00_160.jpg",
+    "first_name": "Dag",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c329b4-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Hillevi",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3badc18d-3c4a-4068-921a-b5fa8a9652d6_160.jpg",
+    "first_name": "Lars Mejern",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/39523176-322e-469e-a754-3c46db2b0756_160.jpg",
+    "first_name": "Malin",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/39797ca4-c136-41c6-bf6b-feb256dee6b3_160.jpg",
+    "first_name": "Mikael",
+    "last_name": "Larsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d3a9b52a-0d94-4610-b20e-d0ed8375c9d1_160.jpg",
+    "first_name": "Rikard",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/69da57e0-b072-45d0-944a-aa5d3f9e3070_160.jpg",
+    "first_name": "Yasmine",
+    "last_name": "Larsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/67e327d0-b2ca-47eb-802a-c140187f0e0c_160.jpg",
+    "first_name": "Rebecka",
+    "last_name": "Le Moine",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1d28738c-16d7-48f3-bb2a-e8cdcf348ca1_160.jpg",
+    "first_name": "Sanne",
+    "last_name": "Lennström",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/08bb4baa-24ca-4395-baf7-c907a4d5b776_160.jpg",
+    "first_name": "Fredrik",
+    "last_name": "Lindahl",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6cca7c48-b127-4d65-8052-ac3588a50dbd_160.jpg",
+    "first_name": "Helena",
+    "last_name": "Lindahl",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/669411b1-9abf-48dd-86c3-628cc7c5d137_160.jpg",
+    "first_name": "Linda",
+    "last_name": "Lindberg",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2d7334ea-9a6f-4381-b6ec-3c46d744cb9a_160.jpg",
+    "first_name": "Teres",
+    "last_name": "Lindberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/25617b2f-2cc7-477a-a872-d1c14e9ef187_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Lindestam",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ee86b181-9f3b-4e03-8ef4-b96b1e79cd25_160.jpg",
+    "first_name": "Eva",
+    "last_name": "Lindh",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/de8826b0-fcf9-4305-86e3-c2680dfed224_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Lindhagen",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8af2f4df-6c44-4844-89af-c0fd142e4eed_160.jpg",
+    "first_name": "Rasmus",
+    "last_name": "Ling",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/66c12cfb-4888-443a-9e31-f64671296908_160.jpg",
+    "first_name": "Per",
+    "last_name": "Lodenius",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/df3faccf-0ebc-4cae-b824-d18e1d3d0d92_160.jpg",
+    "first_name": "Jimmy",
+    "last_name": "Loord",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ac019194-2cf6-4ebd-8d29-29e1f3950cdf_160.jpg",
+    "first_name": "Marléne",
+    "last_name": "Lund Kopparklint",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a7ca5ca6-2e77-4360-8369-0671993019c4_160.jpg",
+    "first_name": "Angelica",
+    "last_name": "Lundberg",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a6beb479-16a2-443e-b0ea-e9c14639064c_160.jpg",
+    "first_name": "Elin",
+    "last_name": "Lundgren",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4a514760-f0a7-47a7-8a51-91bd46693df7_160.jpg",
+    "first_name": "Kerstin",
+    "last_name": "Lundgren",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/19d6281a-a1fc-4399-9631-89acf6420f42_160.jpg",
+    "first_name": "Fredrik",
+    "last_name": "Lundh Sammeli",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/41f3a07f-57ba-4d0c-b737-e05aa04ec023_160.jpg",
+    "first_name": "Patrik",
+    "last_name": "Lundqvist",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1b1880b5-b042-47b6-8669-8a51e1908365_160.jpg",
+    "first_name": "David",
+    "last_name": "Lång",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7826c819-d0da-4e4a-a16b-ffa3d8e9b155_160.jpg",
+    "first_name": "Petter",
+    "last_name": "Löberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/eaf0fa85-8858-4e0e-97d8-daee0a771d1f_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Löfstrand",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9fdf72d9-6d47-4cd8-b6f7-3e81d6767e92_160.jpg",
+    "first_name": "Anders",
+    "last_name": "Lönnberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e234524d-e04b-448a-b609-05926a0a8b36_160.jpg",
+    "first_name": "Annie",
+    "last_name": "Lööf",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/cf017275-5272-4506-a686-4e1d8edc5ab6_160.jpg",
+    "first_name": "Fredrik",
+    "last_name": "Malm",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e32075e3-a115-4add-8652-4993f2f8d8ab_160.jpg",
+    "first_name": "Betty",
+    "last_name": "Malmberg",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4f48a9f3-c14a-4436-8ad3-a1d4166bdf30_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Malmer Stenergard",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/698a36fb-19f3-48cf-bfda-20a17195fbd5_160.jpg",
+    "first_name": "Josefin",
+    "last_name": "Malmqvist",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/639da251-c800-4b3d-a8c5-6626094c9035_160.jpg",
+    "first_name": "Magnus",
+    "last_name": "Manhammar",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2d211f58-34b9-44c9-b2f0-def45ed3e03c_160.jpg",
+    "first_name": "Noria",
+    "last_name": "Manouchi",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/db2ca6ff-5620-4ece-8d31-97777f2efb48_160.jpg",
+    "first_name": "Adam",
+    "last_name": "Marttinen",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/88e092fa-1769-43c7-bfef-9d260811c982_160.jpg",
+    "first_name": "Louise",
+    "last_name": "Meijer",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9f5ae9ae-d5de-4253-8e8b-bb455a9f792e_160.jpg",
+    "first_name": "Jonas",
+    "last_name": "Millard",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ee4900a4-1434-4ae5-8ddf-4f18755e02cc_160.jpg",
+    "first_name": "Thomas",
+    "last_name": "Morell",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/002ed7e8-1202-46df-a87c-8585e5b92012_160.jpg",
+    "first_name": "Ola",
+    "last_name": "Möller",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f65cb6f1-7001-4e8e-8d32-89d534577ab0_160.jpg",
+    "first_name": "Laila",
+    "last_name": "Naraghi",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f0303245-c279-46dc-bffb-549d300db73a_160.jpg",
+    "first_name": "Pyry",
+    "last_name": "Niemi",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4746c2a4-172a-4092-a3d3-08144cd1f0be_160.jpg",
+    "first_name": "Ingemar",
+    "last_name": "Nilsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4c6f215d-de3a-452d-83b5-f472b8668b7e_160.jpg",
+    "first_name": "Jennie",
+    "last_name": "Nilsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a761212d-42d3-4b7d-a535-58fb33d2098d_160.jpg",
+    "first_name": "Kristina",
+    "last_name": "Nilsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f950f83d-d19e-4ae8-82c5-8a302c4bd0eb_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Nilsson",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d6a34e6b-6f87-455c-ab36-fd75292f0ed0_160.jpg",
+    "first_name": "Pia",
+    "last_name": "Nilsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/560c0817-1b91-478a-b273-87a82888328e_160.jpg",
+    "first_name": "Sofia",
+    "last_name": "Nilsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3c0112b7-fdd4-4f06-833b-a27c93d6efdf_160.jpg",
+    "first_name": "Mats",
+    "last_name": "Nordberg",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/54ecece4-3002-4cff-a4f2-f463efb2affb_160.jpg",
+    "first_name": "Caroline",
+    "last_name": "Nordengrip",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a57d39bb-9f60-4def-ab90-97791ec56447_160.jpg",
+    "first_name": "Rickard",
+    "last_name": "Nordin",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/87042942-c4f6-46ff-9eac-fceaf25729d5_160.jpg",
+    "first_name": "Lina",
+    "last_name": "Nordquist",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/243a8476-df07-435b-b2e8-50d03926ae51_160.jpg",
+    "first_name": "Katja",
+    "last_name": "Nyberg",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f03ff4a2-c476-11d4-ae40-006008578ce8_160.jpg",
+    "first_name": "Christer",
+    "last_name": "Nylander",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9cd4ce1a-c1f5-4743-aed6-8e60569e9947_160.jpg",
+    "first_name": "Ingela",
+    "last_name": "Nylund Watz",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/bdd26f21-dca7-4e7c-af32-131937aa539b_160.jpg",
+    "first_name": "Leif",
+    "last_name": "Nysmed",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c994a157-6301-46d2-a111-abe58ec220f4_160.jpg",
+    "first_name": "Marta",
+    "last_name": "Obminska",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c3279d-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Carina",
+    "last_name": "Ohlsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/bc5c4354-fca3-4071-8096-acd9b7b1d09a_160.jpg",
+    "first_name": "Fredrik",
+    "last_name": "Olovsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f8d1d1b6-f008-446e-a7f8-dd324fbb71d4_160.jpg",
+    "first_name": "Kalle",
+    "last_name": "Olsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/acbfe365-7ddb-44db-b076-105b2b9b689a_160.jpg",
+    "first_name": "Lotta",
+    "last_name": "Olsson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/294cd1d7-df0b-4794-b433-b3892d3ad29d_160.jpg",
+    "first_name": "Jasenko",
+    "last_name": "Omanovic",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0d218eb6-6294-4587-8abf-be0a351d7213_160.jpg",
+    "first_name": "Magnus",
+    "last_name": "Oscarsson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c3256b-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Mikael",
+    "last_name": "Oscarsson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/314fe869-7e6c-441f-8d1f-5ab2c6052f1d_160.jpg",
+    "first_name": "Anne",
+    "last_name": "Oskarsson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0f90ef03-a652-45a1-b697-39a33b32e512_160.jpg",
+    "first_name": "Erik",
+    "last_name": "Ottoson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/708eae46-00f3-433c-ba07-7129def782fb_160.jpg",
+    "first_name": "Kjell-Arne",
+    "last_name": "Ottosson",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/df8c5ae3-43e8-4d8a-bf64-67b9a78fef66_160.jpg",
+    "first_name": "Mattias",
+    "last_name": "Ottosson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1512b21b-9312-41bc-80ed-f4f0e58f1de4_160.jpg",
+    "first_name": "Niels",
+    "last_name": "Paarup-Petersen",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fc3b3864-8e29-4fd4-ae65-fe387f3f6f4b_160.jpg",
+    "first_name": "Eric",
+    "last_name": "Palmqvist",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d12313ba-680b-4784-b858-5c9e6db692e7_160.jpg",
+    "first_name": "Amanda",
+    "last_name": "Palmstierna",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c327f8-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Johan",
+    "last_name": "Pehrson",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/de52ae16-706b-4138-a194-aec42fd28aab_160.jpg",
+    "first_name": "Magnus",
+    "last_name": "Persson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/66fca0ac-0ebb-4bd0-b1e1-f34e223d2f1b_160.jpg",
+    "first_name": "Mats",
+    "last_name": "Persson",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/33e3e429-81c8-4c1e-b3d6-d516c48be95c_160.jpg",
+    "first_name": "Peter",
+    "last_name": "Persson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d2d94e0b-a745-4457-8c2f-9557caf78cdf_160.jpg",
+    "first_name": "Björn",
+    "last_name": "Petersson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/13c0a836-8abf-453d-92d0-44d009c27f85_160.jpg",
+    "first_name": "Helén",
+    "last_name": "Pettersson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d9f971a1-12ab-4a01-8cb6-2d2d6a9e0791_160.jpg",
+    "first_name": "Marianne",
+    "last_name": "Pettersson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ba2d53c0-4f47-45f0-a961-ac265c2b8679_160.jpg",
+    "first_name": "Jessica",
+    "last_name": "Polfjärd",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3b9b4858-4b06-4e43-b452-a0dc9d730e9a_160.jpg",
+    "first_name": "Yasmine",
+    "last_name": "Posio",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9f5c5d35-c450-4068-923a-2d8d077223d5_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Püss",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/238444e1-ea5f-4acc-b9d1-b7789658b931_160.jpg",
+    "first_name": "Annika",
+    "last_name": "Qarlsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a4dcaec3-1333-46f3-a7df-632d40399505_160.jpg",
+    "first_name": "Charlotte",
+    "last_name": "Quensel",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/243f0434-ae15-41b4-92b6-146a0fb0700a_160.jpg",
+    "first_name": "Saila",
+    "last_name": "Quicklund",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e9375099-ca5f-4aac-a0ab-de8e3ed1ee99_160.jpg",
+    "first_name": "Per",
+    "last_name": "Ramhorn",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/285a3d5f-cb32-4958-9b7c-1545b2faff18_160.jpg",
+    "first_name": "Lawen",
+    "last_name": "Redar",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6aa5f2eb-568a-4853-a925-65fee736b037_160.jpg",
+    "first_name": "Patrick",
+    "last_name": "Reslow",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b00db2a8-378a-440c-982e-af62d234ed95_160.jpg",
+    "first_name": "Daniel",
+    "last_name": "Riazat",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b4329cc3-9256-470c-a712-5e2501c6fde7_160.jpg",
+    "first_name": "Roger",
+    "last_name": "Richtoff",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/eaa4ca85-20f4-4375-8b76-61febbcf37f6_160.jpg",
+    "first_name": "Edward",
+    "last_name": "Riedl",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c325b529-3455-44a2-acd2-597698b321a6_160.jpg",
+    "first_name": "Azadeh",
+    "last_name": "Rojhan Gustafsson",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/acdaa4aa-20f2-49a0-b929-0862f4bd6826_160.jpg",
+    "first_name": "Jessica",
+    "last_name": "Rosencrantz",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5e09bf12-6f96-4a96-ac0c-27203aef4d2f_160.jpg",
+    "first_name": "Jessika",
+    "last_name": "Roswall",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/eec523be-f85c-43d5-83b0-e734e43905d1_160.jpg",
+    "first_name": "Hans",
+    "last_name": "Rothenberg",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6025366f-76b8-4664-a3ef-ea0864fc8365_160.jpg",
+    "first_name": "Michael",
+    "last_name": "Rubbestad",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/3303f6e9-7957-4a86-9457-090ef22a54ef_160.jpg",
+    "first_name": "Lena",
+    "last_name": "Rådström Baastad",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b250135d-d424-497a-8484-36cb6c0dbf3d_160.jpg",
+    "first_name": "Karin",
+    "last_name": "Rågsjö",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4a486ea1-d97c-4393-9ada-2639140cfd46_160.jpg",
+    "first_name": "Joakim",
+    "last_name": "Sandell",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c5632090-a0aa-461e-9ab2-e9aaa45d0983_160.jpg",
+    "first_name": "Elin",
+    "last_name": "Segerlind",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4da8bb6b-fc06-4f3a-ba25-f70dfe5eb5a7_160.jpg",
+    "first_name": "Markus",
+    "last_name": "Selin",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/235255cd-cf3b-4b45-906d-5ffe21195683_160.jpg",
+    "first_name": "Sara",
+    "last_name": "Seppälä",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/214d9393-c01e-497c-8580-d033b9f57705_160.jpg",
+    "first_name": "Anna",
+    "last_name": "Sibinska",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b4bf17ad-b37d-44ee-bf62-eaf4942a2a43_160.jpg",
+    "first_name": "Jonas",
+    "last_name": "Sjöstedt",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/78e41c66-0d03-4914-9369-f03b795217e5_160.jpg",
+    "first_name": "Oscar",
+    "last_name": "Sjöstedt",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/88b7893a-c9f3-4278-a486-353a1d77a96c_160.jpg",
+    "first_name": "Johnny",
+    "last_name": "Skalin",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c31c8c-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Tuve",
+    "last_name": "Skånberg",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d17ef55a-9e3b-4a4d-894e-d57c7fb4973f_160.jpg",
+    "first_name": "Linus",
+    "last_name": "Sköld",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0255b271-a7f0-43bc-9f5b-9fa694990dab_160.jpg",
+    "first_name": "Pia",
+    "last_name": "Steensland",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0cb27c59-4f9e-4d84-a8e2-f45325b5a93c_160.jpg",
+    "first_name": "Robert",
+    "last_name": "Stenkvist",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ee32e119-fdfe-4e00-b136-b2102d79b2a6_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Stockhaus",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/eda7cbeb-16f4-4a35-b0cd-ca4158e60906_160.jpg",
+    "first_name": "Mikael",
+    "last_name": "Strandman",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/566a8a1c-0625-4f24-9beb-6b6dec928df7_160.jpg",
+    "first_name": "Maria",
+    "last_name": "Strömkvist",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/96fd915b-03e4-436a-9fbd-879f0737d828_160.jpg",
+    "first_name": "Carina",
+    "last_name": "Ståhl Herrstedt",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c63331e9-02ca-4f71-a7de-9a17e2ec4ac4_160.jpg",
+    "first_name": "Jimmy",
+    "last_name": "Ståhl",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e59e1306-99aa-4644-8fda-d54ff040ce98_160.jpg",
+    "first_name": "Cassandra",
+    "last_name": "Sundin",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b7538868-d298-4c5f-9098-e42ea9fb13da_160.jpg",
+    "first_name": "Elisabeth",
+    "last_name": "Svantesson",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/434f8fc8-eb9d-4364-99f6-63f1ef873561_160.jpg",
+    "first_name": "Gunilla",
+    "last_name": "Svantorp",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/de1f77c9-338c-4547-a223-9898cd8ed084_160.jpg",
+    "first_name": "Håkan",
+    "last_name": "Svenneling",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/0c2f572c-a7ce-4f39-8ea9-9a758a01680c_160.jpg",
+    "first_name": "Mia",
+    "last_name": "Sydow Mölleby",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ffe5107b-dc51-4209-ae87-9eabf8fe014d_160.jpg",
+    "first_name": "Ilona",
+    "last_name": "Szatmari Waldau",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/06776272-4f62-44c7-9011-f66349279c88_160.jpg",
+    "first_name": "Sven-Olof",
+    "last_name": "Sällström",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c2917e84-a1f8-4de8-9c71-a492eee1f43f_160.jpg",
+    "first_name": "Anna-Caren",
+    "last_name": "Sätherberg",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/06d7c195-c170-4103-bcc6-1d9c0d43b169_160.jpg",
+    "first_name": "Björn",
+    "last_name": "Söder",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e238e06a-acac-4fae-829c-1773ee851878_160.jpg",
+    "first_name": "Larry",
+    "last_name": "Söder",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2091e357-e195-430b-8dab-7e13732ffa41_160.jpg",
+    "first_name": "Mathias",
+    "last_name": "Tegnér",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/92355c36-d95d-42ed-9ad9-463bf9558767_160.jpg",
+    "first_name": "Arman",
+    "last_name": "Teimouri",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/4c83b0e0-8dda-47a4-9464-81c56db30430_160.jpg",
+    "first_name": "Cecilie",
+    "last_name": "Tenfjord Toftby",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e40dbf5a-203b-4744-84b0-a40ac2a763cb_160.jpg",
+    "first_name": "Lars",
+    "last_name": "Thomsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e66d3e3a-3f97-4942-bc4a-f4aa89ad365a_160.jpg",
+    "first_name": "Jon",
+    "last_name": "Thorbjörnson",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/6d1640b5-12e6-41a3-82a2-a3e91c172cda_160.jpg",
+    "first_name": "Olle",
+    "last_name": "Thorell",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9a93ac06-5af1-475e-8b9f-858c6b003ef0_160.jpg",
+    "first_name": "Jessica",
+    "last_name": "Thunander",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e6943f96-a4d8-45f3-81f2-8ecea4f25e6b_160.jpg",
+    "first_name": "Tomas",
+    "last_name": "Tobé",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/087644a0-838d-4768-9133-62745aeee287_160.jpg",
+    "first_name": "Lorentz",
+    "last_name": "Tovatt",
+    "party": "MP"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/9d24d55a-be20-4caa-ac48-4da11b50969c_160.jpg",
+    "first_name": "Vasiliki",
+    "last_name": "Tsouplaki",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8e282183-f357-460d-80e3-094d61d40889_160.jpg",
+    "first_name": "Emilia",
+    "last_name": "Töyrä",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e3b6587d-15fd-4a54-a95b-c1eaa56d2f68_160.jpg",
+    "first_name": "Roland",
+    "last_name": "Utbult",
+    "party": "KD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/fb0337ec-a1b0-440e-b9b4-a48e99fd415c_160.jpg",
+    "first_name": "Anna",
+    "last_name": "Vikström",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/bcf8f6dc-7be4-46d3-bb3e-df793b2c5256_160.jpg",
+    "first_name": "Helena",
+    "last_name": "Vilhelmsson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1d7d8c9a-7879-4be3-8554-745991b615d2_160.jpg",
+    "first_name": "Henrik",
+    "last_name": "Vinge",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f96150c2-6e1c-4e3f-bc7f-2503f3cc9ede_160.jpg",
+    "first_name": "Alexandra",
+    "last_name": "Völker",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/200035cd-228a-4afa-8849-844f2c1e35fb_160.jpg",
+    "first_name": "Anna",
+    "last_name": "Wallentheim",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ef84acf4-4f56-45d9-9951-1c8ba4098302_160.jpg",
+    "first_name": "Hans",
+    "last_name": "Wallmark",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e581b273-02ee-4cb3-9390-35ea0061eca1_160.jpg",
+    "first_name": "Camilla",
+    "last_name": "Waltersson Grönvall",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/15ab245f-6634-4e11-88eb-3d9533e87d18_160.jpg",
+    "first_name": "Jörgen",
+    "last_name": "Warborn",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b34f05f5-d73a-428c-88a1-4e112c650498_160.jpg",
+    "first_name": "Ciczie",
+    "last_name": "Weidby",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5af2318e-82dc-4271-b219-c12b3d74d11a_160.jpg",
+    "first_name": "John",
+    "last_name": "Weinerhall",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ed3399e1-7bce-4ea4-baf6-587f722710f5_160.jpg",
+    "first_name": "Hanna",
+    "last_name": "Westerén",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1ee04f4d-e5a6-4aab-8461-f5baa7d2a2da_160.jpg",
+    "first_name": "Sofia",
+    "last_name": "Westergren",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/e7e41401-b4df-11d5-8079-0040ca16072a_160.jpg",
+    "first_name": "Barbro",
+    "last_name": "Westerholm",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1c03e794-a9a3-43d5-810a-7951e4c70901_160.jpg",
+    "first_name": "Linda",
+    "last_name": "Westerlund Snecker",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/73281fee-b276-4150-8cf0-fd3368b3c5c6_160.jpg",
+    "first_name": "Åsa",
+    "last_name": "Westlund",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/a7390cef-27c2-4068-800d-ee21b1a94c69_160.jpg",
+    "first_name": "Eric",
+    "last_name": "Westroth",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/dc0c1e6e-450b-4763-be41-c3f810d50b72_160.jpg",
+    "first_name": "Jessica",
+    "last_name": "Wetterling",
+    "party": "V"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8a611e75-37ca-434d-9767-9fb3b60ea82f_160.jpg",
+    "first_name": "Cecilia",
+    "last_name": "Widegren",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5d1ac61d-4464-41a4-bae0-42ea3782cba8_160.jpg",
+    "first_name": "John",
+    "last_name": "Widegren",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/b58dac92-0bb0-4fe3-a052-9049b9a99959_160.jpg",
+    "first_name": "Allan",
+    "last_name": "Widman",
+    "party": "L"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7ef75999-90a2-41af-a083-6dfd70e8e3e8_160.jpg",
+    "first_name": "Björn",
+    "last_name": "Wiechel",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/8a9f3c8c-8ce8-4a17-9e57-0109af47efcc_160.jpg",
+    "first_name": "Markus",
+    "last_name": "Wiechel",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d235dd08-8b15-4e31-aec7-b380a1c1ac0b_160.jpg",
+    "first_name": "Mats",
+    "last_name": "Wiking",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/ab589436-528b-42c5-8e0c-28849b0d2294_160.jpg",
+    "first_name": "Niklas",
+    "last_name": "Wykman",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/7cdc7712-4bb7-4361-8b72-8f98a111d0c5_160.jpg",
+    "first_name": "Viktor",
+    "last_name": "Wärnick",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d7c3235d-83e4-11d4-ae60-0050040c9b55_160.jpg",
+    "first_name": "Anders",
+    "last_name": "Ygeman",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/63ea9085-f68c-4782-ae6e-12d84809d352_160.jpg",
+    "first_name": "Linda",
+    "last_name": "Ylivainio",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/2cfb5b7e-ac47-45e5-84f4-6c53c047cdca_160.jpg",
+    "first_name": "Kristina",
+    "last_name": "Yngwe",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/c59974f3-9489-4b50-8a17-78378bfd7afe_160.jpg",
+    "first_name": "Solveig",
+    "last_name": "Zander",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/d3628aa4-ea6a-4466-8e2c-f3d0cb2d9cad_160.jpg",
+    "first_name": "Boriana",
+    "last_name": "Åberg",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/1e70f7df-dd11-410b-941a-bcac14e919a8_160.jpg",
+    "first_name": "Martin",
+    "last_name": "Ådahl",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/f17df284-828f-481d-9f83-8c6d2b6d2576_160.jpg",
+    "first_name": "Jennie",
+    "last_name": "Åfeldt",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/48144b97-5799-422d-9ede-8b2dd360ca19_160.jpg",
+    "first_name": "Anders",
+    "last_name": "Åkesson",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/5ecb17ba-ebbe-4958-a142-a5134aff9808_160.jpg",
+    "first_name": "Jimmie",
+    "last_name": "Åkesson",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/71b2ece2-dcf7-4e51-aa4c-042cca81cf1e_160.jpg",
+    "first_name": "Ann-Britt",
+    "last_name": "Åsebol",
+    "party": "M"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/74c39a37-e184-44f6-9a7e-36cdb06c9dcc_160.jpg",
+    "first_name": "Per",
+    "last_name": "Åsling",
+    "party": "C"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/10b75fcf-dbac-4fba-9773-7e8889c237b2_160.jpg",
+    "first_name": "Carina",
+    "last_name": "Ödebrink",
+    "party": "S"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/aa5e595b-e755-4a4e-a457-ea289ad1add3_160.jpg",
+    "first_name": "Christina",
+    "last_name": "Östberg",
+    "party": "SD"
+}, {
+    "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/df3988c4-9541-465c-b02e-1410c3d31155_160.jpg",
+    "first_name": "Anders",
+    "last_name": "Österberg",
+    "party": "S"
+}]
