@@ -13,7 +13,6 @@ function populate_party_buttons() {
     PARTIES.forEach(party => {
         document.getElementById("party-buttons").innerHTML += '<img src="img/logo-' + party.toLowerCase() + '-large.jpg" title="' + party + '" class="party-button" alt="Party button" onclick="guess(' + "'" + party + "'" +')">';
     })
-
 }
 
 function guess(p){
@@ -26,9 +25,8 @@ function guess(p){
     }
 
     document.getElementById("stats").innerHTML = "(<span style='color:green;'>" + right + "</span>/<span style='color:red;'>" + wrong + "</span>/" + Math.floor((right/(right+wrong))*1000)/10 + "%" + ")"
-    
+    document.getElementById("history").innerHTML = '<span class="history-item"> <span style="color:' + COLORS[PARTIES.indexOf(person.party)] +';">(' + person.party  + ')</span> ' + person.first_name + ' ' + person.last_name + '</span>' + document.getElementById("history").innerHTML;
     new_test();
-
 }
 
 
@@ -39,8 +37,6 @@ function new_test() {
     var src = person.src;
     src = src.substr(0, src.indexOf("_")) + "_320.jpg";
 
-
     document.getElementById("name").innerText = person.first_name + " " + person.last_name;
     document.getElementById("image").src = src;
-
 }

@@ -1,5 +1,7 @@
 const PARTIES = "c kd l m mp s sd v".toUpperCase().split(" ");
 
+const COLORS = "#266c40 #2d5c9f #3368b3 #54bded #3eaa4c #ed3042 #60c3e9 #de362b".split(" ");
+
 const LIST = [{
     "src": "https://data.riksdagen.se/filarkiv/bilder/ledamot/45445eb9-01dc-4786-990e-c1864d4f7c50_160.jpg",
     "first_name": "Tina",
